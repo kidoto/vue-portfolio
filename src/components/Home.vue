@@ -1,19 +1,26 @@
 <template>
-<div id="home">
+<div id='home'>
   this is home.
 
   <div id='greeting'>Welcome to Kidoto's portfolio.
   </div>
   <div id='greetingMessage'>
-    色々なメッセージ
   </div>
 
+  <Gauge>
+  </Gauge>
 
 </div>
 </template>
 
 <script>
+import Gauge from '@/components/CommandGauge.vue'
 
+export default {
+  components: {
+    Gauge
+  }
+}
 </script>
 
 <style>

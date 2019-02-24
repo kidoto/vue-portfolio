@@ -13,9 +13,28 @@ body {
   position: absolute;
 }
 
-.slide-fade-enter, .slide-fade-leave-to
+.slide-fade-enter, .slide-fade-leave-to{
 /* .slide-fade-leave-active below version 2.1.8 */
-
-  {
   opacity: 0;
+}
+
+#lifeBar {
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  vertical-align: -0.2em;
+}
+
+#lifeBar::-webkit-progress-bar {
+  background: #ccc;
+}
+
+#lifeBar::-webkit-progress-value {
+  background-color: #00cc00;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
 }

@@ -1,23 +1,35 @@
 <template>
-  <div id="app">
+  <div id='app'>
     <Header>
     </Header>
-    <transition name="slide-fade">
+    <transition name='slide-fade'>
       <router-view></router-view>
     </transition>
-
   </div>
 </template>
 
 <script>
+'use strict'
 import Header from './components/Header.vue'
-
+import firebase from 'firebase'
+import firebaseConfig from '../config/firebase.env'
 export default {
-  name: 'app',
   components: {
     Header
+  },
+  mounted: function(){
+    var config = {
+      apiKey: firebaseConfig.API_KEY,
+      authDomain: firebaseConfig.AUTH_DOMAIN,
+      databaseURL: firebaseConfig.DATABASE_URL,
+      projectId: firebaseConfig.PROJECT_ID,
+      storageBucket: firebaseConfig.STORAGE_BUCKET,
+      messagingSenderId: firebaseConfig.MESSAGING_SENDERID
+    };
+    firebase.initializeApp(config);
   }
 }
+
 </script>
 
 <style>

@@ -2,16 +2,13 @@
 <div id="gauge">
   <progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
   <button v-on:click='up'>button</button>
-  <br />
-  {{isShow}}
+  <br /> {{isShow}}
   <br />
   <transition name="slide-fade">
-<p v-if='isShow'>
 
-      <Command />
-    </p>
+      <Command v-if='isShow'/>
 
-</transition>
+  </transition>
 
 </div>
 </template>
@@ -67,7 +64,7 @@ export default {
     up: function() {
       this.min++;
       this.now.value++;
-        // console.log('min' + this.min);
+      // console.log('min' + this.min);
       if (this.min === this.max) {
         this.gaugeMaxed();
       }

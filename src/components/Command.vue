@@ -1,17 +1,17 @@
 <template>
 <div id="command">
-  <table style='border:solid 1px;width:140px'>
+  <table style='border:solid 2px;width:140px; border-radius:6px;'>
     <tr style='height:50px'>
       <td>
         <ul>
           <li>
-            carrier
+            <span v-on:click='carrier'>けいれき</span>
           </li>
           <li>
-            contact
+            <span v-on:click='contact'>こんたくと</span>
           </li>
           <li>
-            command 3
+            とうそう
           </li>
         </ul>
       </td>
@@ -21,8 +21,20 @@
 </template>
 
 <script>
-
+export default {
+  methods: {
+    carrier: function() {
+      this.$router.push('/carrier');
+    },
+    contact: function() {
+      this.$router.push('/contact');
+    }
+  }
+}
 </script>
 
 <style>
+#command {
+  font-family: osaka;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div id="carrier">
-  this is carrier.
+  経歴ページやつー
 </div>
 </template>
 

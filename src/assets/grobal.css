@@ -24,14 +24,18 @@ body {
   appearance: none;
   height: 10px;
   vertical-align: -0.2em;
+  border-radius: 6px;
 }
 
 #lifeBar::-webkit-progress-bar {
   background: #ccc;
+  border: solid 1px;
+  border-radius: 6px;
 }
 
 #lifeBar::-webkit-progress-value {
-  background-color: #00cc00;
+  background-color: #87cefa;
+    border-radius: 6px;
 }
 
 ul {

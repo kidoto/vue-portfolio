@@ -2,11 +2,11 @@
 <div id="gauge">
   <progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
   <button v-on:click='up'>button</button>
-  <br /> {{isShow}}
+  <br />
   <br />
   <transition name="slide-fade">
 
-      <Command v-if='isShow'/>
+    <Command v-if='isShow' />
 
   </transition>
 
@@ -71,12 +71,11 @@ export default {
     },
     gaugeMaxed: function() {
       this.isActive = true;
-      this.isShow = true;
       clearInterval(this.activeGauge);
+      this.appearCommand();
     },
     appearCommand: function() {
-      // TODO コマンドウィンドウの表示
-
+      this.isShow = true;
     },
     gaugeReactive: function() {
       // TODO コマンド選択時のゲージリアクティブ化

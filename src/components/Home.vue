@@ -7,21 +7,10 @@
   <div id='greetingMessage'>
   </div>
 
-  <Gauge>
-  </Gauge>
-
 </div>
 </template>
 
 <script>
-import Gauge from '@/components/CommandGauge.vue'
-
-export default {
-  components: {
-    Gauge
-  }
-}
 </script>
-
 <style>
 </style>

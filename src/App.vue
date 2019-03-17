@@ -1,67 +1,61 @@
 <template>
-  <div id='app'>
-    {{talking}}
-    <Header>
-    </Header>
+<div id='app'>
+  {{talking}}
+  <transition name='slide-fade'>
+    <Carrier v-if='isCarrier'></Carrier>
+  </transition>
 <!--
-    <table style='width:100%;'>
-      <tbody>
-        <tr id='area'>
-          <td id='enemy'>
-            a
-          </td>
-          <td id='party'>
-            b
-          </td>
-        </tr>
-        <tr id='command'>
-          <td id='enemyWindow'>
-            a
-          </td>
-          <td id='partyWindow'>
-            <Gauge/>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  -->
-    <v-app id="inspire">
+  <Header>
+  </Header>
+-->
+  <transition name='slide-fade'>
+    <router-view></router-view>
+  </transition>
+  <v-app id="inspire">
     <v-layout row wrap fill-height>
       <v-flex xs7>
-         <v-card>
-           <v-card-title primary-title>
-             それっぽい敵を表示するエリア
-           </v-card-title>
-         </v-card>
-       </v-flex>
-       <v-flex xs5 >
-         <v-card>
-           <v-card-title primary-title>
-             自分
-           </v-card-title>
-         </v-card>
-       </v-flex>
-       <v-flex xs7 column>
-          <v-card>
-            <v-card-title primary-title>
-              げんじつ
-            </v-card-title>
-          </v-card>
-        </v-flex>
-        <v-flex xs5 column>
-           <v-card>
-             <v-card-title primary-title>
-                <Gauge/>
-             </v-card-title>
-           </v-card>
-         </v-flex>
-     </v-layout>
-     </v-app>
+        <v-card height='100%'>
+          <v-card-title primary-title>
+            それっぽい敵を表示するエリア
+            <img src='./assets/emperor.jpg' />
+          </v-card-title>
+        </v-card>
+      </v-flex>
+      <v-flex xs5>
+        <v-card height='100%'>
+          <v-card-title primary-title>
+            自分
+            <div>
+              <img src='./assets/cat.jpg' width='50%' />
+              <img src='./assets/cat.jpg' width='50%' />
+              <img src='./assets/cat.jpg' width='50%' />
+              <img src='./assets/cat.jpg' width='50%' />
+            </div>
+          </v-card-title>
+        </v-card>
+      </v-flex>
+      <v-flex xs7 column>
+        <v-card class='bottom' height='100%' style='border:5px solid #FFF'>
+          <v-card-title primary-title>
+            <transition name='slide-fade'>
+              <Command v-on:showCarrier='showCarrier' v-if='isCommand' />
+            </transition>
+            げんじつ
+          </v-card-title>
 
-    <transition name='slide-fade'>
-      <router-view></router-view>
-    </transition>
-  </div>
+        </v-card>
+      </v-flex>
+      <v-flex xs5 column>
+        <v-card class='bottom' height='100%' style='border:5px solid #FFF'>
+          <v-card-title primary-title>
+            <Gauge v-on:appearCommand='appearCommand' />
+          </v-card-title>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-app>
+
+</div>
 </template>
 
 <script>
@@ -70,13 +64,17 @@ import Header from './components/Header.vue'
 import firebase from 'firebase'
 import firebaseConfig from '../config/firebase.env'
 import Gauge from '@/components/CommandGauge.vue'
+import Command from '@/components/Command.vue'
+import Carrier from '@/components/Carrier.vue'
 
 export default {
   components: {
     Header,
-    Gauge
+    Gauge,
+    Command,
+    Carrier
   },
-  mounted: function(){
+  mounted: function() {
     var config = {
       apiKey: firebaseConfig.API_KEY,
       authDomain: firebaseConfig.AUTH_DOMAIN,
@@ -87,13 +85,22 @@ export default {
     };
     firebase.initializeApp(config);
   },
+  methods: {
+    appearCommand: function() {
+      this.isCommand = true;
+    },
+    showCarrier: function() {
+      this.isCarrier = true;
+    }
+  },
   data() {
     return {
-      talking: ''
+      talking: '',
+      isCommand: false,
+      isCarrier: false
     }
   }
 }
-
 </script>
 
 <style>
@@ -102,6 +109,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  height: 100vh;
+  position: fixed;
 }
 
 #greeting {
@@ -112,17 +121,22 @@ export default {
   mergin: 0 auto;
 }
 
-td{
+td {
   border: 1px solid;
 }
 
-#area #enemy{
+#area #enemy {
   width: 70%;
-  heigth: 200px;
+  heigth: 20vh;
 }
 
-#area #party{
+#area #party {
   width: 30%;
-  height: 200px;
+  height: 20vh;
+}
+
+.bottom {
+  background-color: #95bfea !important;
+
 }
 </style>

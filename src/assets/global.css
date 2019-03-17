@@ -22,19 +22,20 @@ body {
   display: inline-block;
   -webkit-appearance: none;
   appearance: none;
-  height: 10px;
+  height: 13px;
   vertical-align: -0.2em;
   border-radius: 6px;
+  border: 2px solid;
 }
 
 #lifeBar::-webkit-progress-bar {
-  background: #ccc;
+  background: #bbb;
   border: solid 1px;
   border-radius: 6px;
 }
 
 #lifeBar::-webkit-progress-value {
-  background-color: #87cefa;
+  background-color: #EFF;
     border-radius: 6px;
 }
 

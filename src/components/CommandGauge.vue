@@ -1,25 +1,16 @@
 <template>
 <div id="gauge">
-  <progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
-  <button v-on:click='up'>button</button>
-  <br />
-  <br />
-  <transition name="slide-fade">
-
-    <Command v-if='isShow' />
-
-  </transition>
-
+  {{name}}  {{hp}}<progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
 </div>
 </template>
 
 <script>
-import Command from '@/components/Command.vue'
+//import Command from '@/components/Command.vue'
 export default {
-  components: {
-    Command
-  },
-  name: 'gauge',
+//  components: {
+//   Command
+//  },
+//  name: 'gauge',
   data() {
     return {
       isShow: false,
@@ -28,7 +19,9 @@ export default {
       max: 100,
       now: null,
       isActive: false,
-      activeGauge: null
+      activeGauge: null,
+      name: 'ワイ',
+      hp: 9999
     }
   },
   mounted: function update() {
@@ -75,7 +68,8 @@ export default {
       this.appearCommand();
     },
     appearCommand: function() {
-      this.isShow = true;
+      // this.isShow = true;
+      this.$emit('appearCommand');
     },
     gaugeReactive: function() {
       // TODO コマンド選択時のゲージリアクティブ化

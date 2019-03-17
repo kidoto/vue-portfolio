@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // ルート用のコンポーネントを読み込む
+import App from './App.vue'
 import Home from '@/components/Home.vue'
 import Contact from '@/components/Contact.vue'
 import Whois from '@/components/Whois.vue'
@@ -15,8 +16,8 @@ const router = new VueRouter({
   // URLのパスと紐づくコンポーネントをマッピング
   routes: [
     {
-      path: '/',
-      component: Home
+      path: '/app',
+      component: App
     }, {
       path: '/whois',
       component: Whois

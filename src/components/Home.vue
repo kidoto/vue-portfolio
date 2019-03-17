@@ -1,16 +1,32 @@
 <template>
-<div id='home'>
-  this is home.
+<div id='app'>
+  <div id='selectMenu' v-if='isSelect'>
+    <router-link to="/app" v-on:click.native='check'>App</router-link>
+  </div>
+  <transition name='slide-fade'>
+    <router-view></router-view>
+  </transition>
 
-  <div id='greeting'>Welcome to Kidoto's portfolio.
-  </div>
-  <div id='greetingMessage'>
-  </div>
 
 </div>
 </template>
 
 <script>
+export default {
+
+methods: {
+  check: function() {
+    this.isSelect = false;
+  }
+},
+  data() {
+    return {
+      isSelect: true,
+    }
+  }
+}
+
+
 </script>
 <style>
 </style>

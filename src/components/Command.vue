@@ -45,10 +45,15 @@ export default {
 <style>
 #command {
   font-family: osaka;
+  color: #FFF;
   position: absolute;
   width: 85%;
   top: 0px;
-  background-color: #FFF;
+  background-color: #1e50a2;
+  border:1px solid #EEE;
+  box-shadow:rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
+  -webkit-box-shadow:rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
+  -moz-box-shadow:rgba(122, 122, 122, 0.0588235) 0px 0px 6px 3px;
 }
 
 #command #block {
@@ -65,8 +70,6 @@ export default {
 
 span {
   position: relative;
-  /*display: inline-block;
-  */
   text-decoration: none;
 }
 

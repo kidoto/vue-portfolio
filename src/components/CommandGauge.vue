@@ -1,16 +1,16 @@
 <template>
 <div id="gauge">
-  {{name}}  {{hp}}<progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
+  {{name}} {{hp}}<progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
 </div>
 </template>
 
 <script>
 //import Command from '@/components/Command.vue'
 export default {
-//  components: {
-//   Command
-//  },
-//  name: 'gauge',
+  //  components: {
+  //   Command
+  //  },
+  //  name: 'gauge',
   data() {
     return {
       isShow: false,
@@ -79,4 +79,7 @@ export default {
 </script>
 
 <style>
+#gauge {
+  color: #FFF;
+}
 </style>

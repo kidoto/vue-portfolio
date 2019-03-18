@@ -1,5 +1,5 @@
 <template>
-<div id='app'>
+<div id='app2'>
   {{talking}}
   <transition name='slide-fade'>
     <Carrier v-if='isCarrier'></Carrier>
@@ -104,13 +104,13 @@ export default {
 </script>
 
 <style>
-#app {
+#app2 {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   height: 100vh;
-  position: fixed;
+  position: relative;
 }
 
 #greeting {
@@ -136,7 +136,7 @@ td {
 }
 
 .bottom {
-  background-color: #95bfea !important;
-
+  color: #FFF !important;
+  background-color: #1e50a2 !important;
 }
 </style>

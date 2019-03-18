@@ -16,6 +16,7 @@ export default {
 
 methods: {
   check: function() {
+    console.log(0)
     this.isSelect = false;
   }
 },
@@ -29,4 +30,6 @@ methods: {
 
 </script>
 <style>
+#app {
+}
 </style>

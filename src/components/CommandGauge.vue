@@ -1,16 +1,14 @@
 <template>
 <div id="gauge">
-  {{name}} {{hp}}<progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
+  <span id="charcterStatus">
+      {{name}} {{hp}}
+  </span>
+  <progress id="lifeBar" value="0" max="100" min="0" optimum="100"></progress>
 </div>
 </template>
 
 <script>
-//import Command from '@/components/Command.vue'
 export default {
-  //  components: {
-  //   Command
-  //  },
-  //  name: 'gauge',
   data() {
     return {
       isShow: false,
@@ -31,20 +29,6 @@ export default {
       vm.up()
     }, 10);
     this.now = document.getElementById('lifeBar');
-    //    for (let i=0; i<lifeBar.max;i++,lifeBar.value++){
-    //      console.log('a');
-    //  }
-    //let isShow = false;
-    //最大値に達したらループ終了
-    //    if (lifeBar.value >= lifeBar.max) {
-    //      console.log(0)
-    //      vm.mess = 'aaa';
-    //    clearTimeout(gameTimer);
-
-    //       lifeBar.value = 0;
-    //      console.log('max');
-    //    }
-
   },
   methods: {
     update: function() {
@@ -65,21 +49,23 @@ export default {
     gaugeMaxed: function() {
       this.isActive = true;
       clearInterval(this.activeGauge);
+      document.getElementById('lifeBar').style.background = 'orange';
       this.appearCommand();
     },
     appearCommand: function() {
-      // this.isShow = true;
       this.$emit('appearCommand');
-    },
-    gaugeReactive: function() {
-      // TODO コマンド選択時のゲージリアクティブ化
     }
   }
 }
 </script>
 
 <style>
-#gauge {
+#charcterStatus {
   color: #FFF;
+}
+
+#lifeBar {
+  color: #000;
+  padding: 1px;
 }
 </style>

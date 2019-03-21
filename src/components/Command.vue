@@ -68,25 +68,25 @@ export default {
   display: table-cell;
 }
 
-span {
+#command span {
   position: relative;
   text-decoration: none;
 }
 
-span::after {
+#command span::after {
   position: absolute;
   bottom: -2px;
   left: 0;
   content: '';
   width: 100%;
   height: 2px;
-  background: #000;
+  background: #FFF;
   transform: scale(0, 1);
   transform-origin: left top;
   transition: transform .3s;
 }
 
-span:hover::after {
+#command span:hover::after {
   transform: scale(1, 1);
 }
 </style>
